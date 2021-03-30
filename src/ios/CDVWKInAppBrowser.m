@@ -1082,6 +1082,14 @@ BOOL isExiting = FALSE;
     
     __weak UIViewController* weakSelf = self;
     
+    instance = [CDVWKInAppBrowser getInstance];
+    
+    if (instance.callbackId != nil) {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@{@"type":@"close"}];
+        [instance.commandDelegate sendPluginResult:pluginResult callbackId:instance.callbackId];
+    }
+    
+    
     // Run later to avoid the "took a long time" log message.
     dispatch_async(dispatch_get_main_queue(), ^{
         isExiting = TRUE;
