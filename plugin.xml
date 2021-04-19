@@ -20,7 +20,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
            id="cordova-plugin-inappbrowser"
-      version="4.1.0">
+      version="4.1.0-bf-1.0">
 
     <name>InAppBrowser</name>
     <description>Cordova InAppBrowser Plugin</description>
@@ -70,7 +70,7 @@
     <!-- ios -->
     <platform name="ios">
         <js-module src="www/inappbrowser.js" name="inappbrowser">
-            <clobbers target="cordova.InAppBrowser.open" />
+            <clobbers target="cordova.InAppBrowser" />
         </js-module>
         <config-file target="config.xml" parent="/*">
             <feature name="InAppBrowser">
